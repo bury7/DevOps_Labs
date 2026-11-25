@@ -18,14 +18,14 @@ Tools: a typical Python project (for example, a web project), a Docker Hub accou
 
 ## Solution
 
-This lab is done in my coursework repository, [Network_Programming_Coursework](https://github.com/bury7/Network_Programming_Coursework). Its Flask web project is the Python project the CI builds, so the files are not copied here.
+This lab is done in my coursework repository, [Network_Programming_Coursework](https://github.com/bury7/Network_Programming_Coursework). Its Flask web project is the Python project the CI builds, so the files are not copied here. Instead of a `requirements.txt`, the dependencies are declared in `pyproject.toml` and pinned in `uv.lock`, and the Docker image installs them with uv.
 
-| Requirement                       | File in the coursework repository                                                                                  |
-|-----------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| `Dockerfile`                      | [Dockerfile](https://github.com/bury7/Network_Programming_Coursework/blob/main/Dockerfile)                         |
-| `requirements.txt`                | [requirements.txt](https://github.com/bury7/Network_Programming_Coursework/blob/main/requirements.txt)             |
-| `.github/workflows/sample-ci.yml` | [sample-ci.yml](https://github.com/bury7/Network_Programming_Coursework/blob/main/.github/workflows/sample-ci.yml) |
-| CI runs                           | [Actions tab](https://github.com/bury7/Network_Programming_Coursework/actions)                                     |
+| Requirement                       | File in the coursework repository                                                                                                                                                           |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Dockerfile`                      | [Dockerfile](https://github.com/bury7/Network_Programming_Coursework/blob/main/Dockerfile)                                                                                                  |
+| Python dependencies               | [pyproject.toml](https://github.com/bury7/Network_Programming_Coursework/blob/main/pyproject.toml) and [uv.lock](https://github.com/bury7/Network_Programming_Coursework/blob/main/uv.lock) |
+| `.github/workflows/sample-ci.yml` | [sample-ci.yml](https://github.com/bury7/Network_Programming_Coursework/blob/main/.github/workflows/sample-ci.yml)                                                                          |
+| CI runs                           | [Actions tab](https://github.com/bury7/Network_Programming_Coursework/actions)                                                                                                              |
 
 The repository has the `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` secrets. Every push to `main` runs the tests, builds the image and pushes it to Docker Hub as [`bury7/network-programming-coursework`](https://hub.docker.com/r/bury7/network-programming-coursework) with the `latest` and commit SHA tags.
 
